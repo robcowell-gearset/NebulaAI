@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Log Analysis" icon-name="utility:textarea">
+        <div class="slds-p-around_medium">
+            <lightning-textarea
+                label="Log"
+                value={log}
+                onchange={handleLogChange}
+            ></lightning-textarea>
+
+            <lightning-button 
+                label="Analyze Log" 
+                onclick={analyzeLog} 
+                class="slds-m-top_medium" 
+                variant="brand">
+            </lightning-button>
+
+            <!-- Spinner element -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Analyzing Log" size="medium"></lightning-spinner>
+            </template>
+
+            <lightning-textarea
+                label="Analysis"
+                value={analysis}
+                class="slds-m-top_medium"
+                readonly
+            ></lightning-textarea>
+        </div>
+    </lightning-card>
+</template>
